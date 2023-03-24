@@ -71,6 +71,21 @@ module Enumerable
 
     true
   end
+
+  def my_map(&block)
+    items = self
+    i = 0
+    arr = []
+
+    while i < items.length
+      arr << block.call(self[i])
+      i += 1
+    end
+
+    arr
+  end
+
+
 end
 
 # You will first have to define my_each
