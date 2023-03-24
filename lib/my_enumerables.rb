@@ -29,6 +29,20 @@ module Enumerable
 
     false
   end
+
+  def my_all?
+    items = self
+    i = 0
+
+    while i < items.length
+      result = yield items[i]
+      return false if result == false
+
+      i += 1
+    end
+
+    true
+  end
 end
 
 # You will first have to define my_each
