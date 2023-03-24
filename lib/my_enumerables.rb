@@ -57,6 +57,20 @@ module Enumerable
 
     arr
   end
+
+  def my_none?
+    items = self
+    i = 0
+
+    while i < items.length
+      result = yield items[i]
+      return false if result == true
+
+      i += 1
+    end
+
+    true
+  end
 end
 
 # You will first have to define my_each
