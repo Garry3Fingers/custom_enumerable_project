@@ -78,14 +78,27 @@ module Enumerable
     arr = []
 
     while i < items.length
-      arr << block.call(self[i])
+      arr << block.call(items[i])
       i += 1
     end
 
     arr
   end
 
+  def my_inject(initial_value = 0, &block)
+    items = self
+    i = 1
+    result = block.call(initial_value, items[0])
 
+    while i < items.length
+      result = block.call(result, items[i])
+      i += 1
+    end
+
+    result
+  end
+
+  
 end
 
 # You will first have to define my_each
