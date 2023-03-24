@@ -15,6 +15,20 @@ module Enumerable
 
     count
   end
+
+  def my_any?
+    items = self
+    i = 0
+
+    while i < items.length
+      result = yield items[i]
+      return true if result == true
+
+      i += 1
+    end
+
+    false
+  end
 end
 
 # You will first have to define my_each
