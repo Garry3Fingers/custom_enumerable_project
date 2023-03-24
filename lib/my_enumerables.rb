@@ -98,7 +98,17 @@ module Enumerable
     result
   end
 
-  
+  def my_each_with_index(&block)
+    items = self
+    i = 0
+
+    while i < items.length
+      block_call = block.call(items[i], i)
+      i += 1
+    end
+
+    block_call.nil? == false ? block_call : items
+  end
 end
 
 # You will first have to define my_each
