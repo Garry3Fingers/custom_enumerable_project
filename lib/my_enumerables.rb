@@ -1,5 +1,20 @@
 module Enumerable
   # Your code goes here
+  def my_count
+    items = self
+    return items.length unless block_given?
+
+    i = 0
+    count = 0
+
+    while i < items.length
+      result = yield items[i]
+      count += 1 if result == true
+      i += 1
+    end
+
+    count
+  end
 end
 
 # You will first have to define my_each
