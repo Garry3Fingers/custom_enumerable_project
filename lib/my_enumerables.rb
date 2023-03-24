@@ -43,6 +43,20 @@ module Enumerable
 
     true
   end
+
+  def my_select(&block)
+    items = self
+    i = 0
+    arr = []
+
+    while i < items.length
+      result = block.call(items[i])
+      arr << items[i] if result == true
+      i += 1
+    end
+
+    arr
+  end
 end
 
 # You will first have to define my_each
